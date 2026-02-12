@@ -16,7 +16,7 @@ type Server struct {
 
 func (s *Server) ListenAndServe() error {
 	if s.Handler == nil {
-		panic("http server started without a handler")
+		s.Handler = http.DefaultServeMux
 	}
 
 	l, err := net.Listen("tcp", s.Addr)
